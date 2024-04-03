@@ -6,7 +6,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    //QMessageBox::about(this,"QT VERSION",qVersion());
+    //QMessageBox::about(this,"QT VERSION",qVersioщn());
     db=QSqlDatabase::addDatabase("QSQLITE");
 
     db.setDatabaseName("./../../BDSQL/devices.db");
