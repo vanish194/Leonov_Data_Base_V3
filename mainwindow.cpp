@@ -9,7 +9,7 @@ MainWindow::MainWindow(QWidget *parent)
     //QMessageBox::about(this,"QT VERSION",qVersion());
     db=QSqlDatabase::addDatabase("QSQLITE");
     //For open Database, chance path to dp.
-    db.setDatabaseName("./../../BDSQL/devices.db");
+    db.setDatabaseName("./../TryV3/devices.db");
     if (db.open())
     {
         //Model
