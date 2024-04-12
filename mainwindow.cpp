@@ -32,6 +32,7 @@ MainWindow::MainWindow(QWidget *parent)
         ui->statusbar->showMessage("EROR CONNECTION "+ db.lastError().databaseText());
     }
     dialog = new Dialog;
+    ui->tableView->setSelectionMode(QAbstractItemView::SingleSelection);
     connect (dialog,&Dialog::giveData,this,&MainWindow::takeData);
 }
 
@@ -73,7 +74,11 @@ VALUES ("+model->getmnemonics_id()+","+model->getmnemonic()+","+model->getunit()
 
 void MainWindow::on_BtnREMOVE_clicked()
 {
-    model->removeRow(currentRow);
+    if (RowSelectionFlag)
+    {
+        model->removeRow(currentRow);
+        RowSelectionFlag=false;
+    }
     model->select();
 }
 
@@ -82,7 +87,7 @@ void MainWindow::on_tableView_clicked(const QModelIndex &index)
 {
     currentRow=index.row();
     currentColomn=index.column();
-
+    RowSelectionFlag=true;
 }
 
 
@@ -92,7 +97,6 @@ void MainWindow::on_tableView_doubleClicked(const QModelIndex &index)
     QString valuefromindex;
     nameColomn = model->headerData(currentColomn,Qt::Horizontal).toString();
     valuefromindex= ui->tableView->model()->data(ui->tableView->currentIndex()).toString();
-
     ui->QuerryLineEdit->setText(nameColomn+"=""\""+valuefromindex+"\"");
 }
 
