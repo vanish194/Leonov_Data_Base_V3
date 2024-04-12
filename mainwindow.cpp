@@ -126,7 +126,7 @@ void MainWindow::on_BtnSearch_clicked()
 
 void MainWindow::on_OpenDataBase_triggered()
 {
-    QString fileName=QFileDialog::getOpenFileName(this,"Chose file",QDir::currentPath(),"*db");
+    QString fileName=QFileDialog::getOpenFileName(this,"Chose file",QDir::homePath(),"*db");
     ui->statusbar->showMessage(fileName);
     db.setDatabaseName(fileName);
     if (db.open())
