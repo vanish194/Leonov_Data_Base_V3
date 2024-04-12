@@ -6,7 +6,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    //QMessageBox::about(this,"QT VERSION",qVersion());
+    //QMessageBox::about(this,"QT VERSION",qVersion(()));
     db=QSqlDatabase::addDatabase("QSQLITE");
     //For open Database, chance path to dp.
     db.setDatabaseName("./../TryV3/devices.db");
@@ -126,7 +126,7 @@ void MainWindow::on_BtnSearch_clicked()
 
 void MainWindow::on_OpenDataBase_triggered()
 {
-    QString fileName=QFileDialog::getOpenFileName(this,"Chose file",QDir::currentPath(),"*db");
+    QString fileName=QFileDialog::getOpenFileName(this,"Chose file",QDir::homePath(),"*db");
     ui->statusbar->showMessage(fileName);
     db.setDatabaseName(fileName);
     if (db.open())
