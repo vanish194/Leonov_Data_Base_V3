@@ -89,7 +89,7 @@
    <item row="2" column="1" colspan="2">
     <layout class="QVBoxLayout" name="verticalLayout_2">
      <item>
-      <widget class="QLineEdit" name="lbmnemonic_id">
+      <widget class="QLineEdit" name="lbmnemonicId">
        <property name="text">
         <string/>
        </property>
@@ -117,14 +117,14 @@
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="lbtypedevice_id">
+      <widget class="QLineEdit" name="lbtypedeviceId">
        <property name="text">
         <string/>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="lbparent_mnemonic_id">
+      <widget class="QLineEdit" name="lbparentMnemonicId">
        <property name="text">
         <string/>
        </property>
