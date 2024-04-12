@@ -50,6 +50,7 @@ private:
     int currentColomn;
     QString PathDb;
     Dialog *dialog;
+    bool RowSelectionFlag=false;
 public slots:
     void takeData(MyTableModel*);
 
