@@ -55,8 +55,8 @@ void MainWindow::takeData(MyTableModel* model)
 
     QSqlQuery querry;
     if (querry.exec(("INSERT INTO mnemonics (mnemonic_id,mnemonic,unit,description,typedevice_id,parent_mnemonic_id) \
-VALUES ("+model->getmnemonics_id()+","+model->getmnemonic()+","+model->getunit()+",\
-"+model->getdescription()+","+model->gettypedevice_id()+","+model->getparent_mnemonic_id()+")" )))
+VALUES ("+model->getmnemonicsId()+","+model->getmnemonic()+","+model->getunit()+",\
+"+model->getdescription()+","+model->gettypedeviceId()+","+model->getparentMnemonicId()+")" )))
     {
 
         QMessageBox::about(this,"DATA ADDED","DATA SUCCEFULL ADDED");

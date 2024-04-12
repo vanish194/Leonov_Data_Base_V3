@@ -15,7 +15,7 @@ public:
 
     explicit MyTableModel(QObject *parent = nullptr);
     //Row data
-    QString getmnemonics_id();
+    QString getmnemonicsId();
 
     QString getmnemonic();
 
@@ -23,11 +23,11 @@ public:
 
     QString getdescription();
 
-    QString gettypedevice_id();
+    QString gettypedeviceId();
 
-    QString getparent_mnemonic_id();
+    QString getparentMnemonicId();
 
-    void setmnemonics_id(QString t);
+    void setmnemonicsId(QString t);
 
     void setmnemonic(QString t);
 
@@ -35,22 +35,22 @@ public:
 
     void setdescription(QString t);
 
-    void settypedevice_id(QString t);
+    void settypedeviceId(QString t);
 
-    void setparent_mnemonic_id(QString t);
-    QProperty <QString> mnemonics_id{""};
+    void setparentMnemonicId(QString t);
+    QProperty <QString> mnemonicsId{""};
     QProperty <QString> mnemonic{""};
     QProperty <QString> unit{""};
     QProperty <QString> description{""};
-    QProperty <QString> typedevice_id{""};
-    QProperty <QString> parent_mnemonic_id{""};
+    QProperty <QString> typedeviceId{""};
+    QProperty <QString> parentMnemonicId{""};
 signals:
-    void mnemonics_idChanged(QString t);
+    void mnemonicsIdChanged(QString t);
     void mnemonicChanged(QString t);
     void unitChanged(QString t);
     void descriptionChanged(QString t);
-    void typedevice_idChanged(QString t);
-    void parent_mnemonic_idChanged(QString t);
+    void typedeviceIdChanged(QString t);
+    void parentMnemonicIdChanged(QString t);
 
 };
 
