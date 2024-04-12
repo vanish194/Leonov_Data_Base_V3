@@ -37,6 +37,8 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow()
 {
+    delete model;
+    delete dialog;
     delete ui;
 }
 
@@ -119,5 +121,34 @@ void MainWindow::on_BtnSearch_clicked()
     model->setFilter(querryline);
 
     model->select();
+}
+
+
+void MainWindow::on_OpenDataBase_triggered()
+{
+    QString fileName=QFileDialog::getOpenFileName(this,"Chose file",QDir::currentPath(),"*db");
+    ui->statusbar->showMessage(fileName);
+    db.setDatabaseName(fileName);
+    if (db.open())
+    {
+        //Model
+        ui->statusbar->showMessage("Seccessful connection to DB:" +db.databaseName());
+        model = new MyTableModel ;
+        model->setTable("mnemonics");
+        model->setEditStrategy(QSqlTableModel::OnFieldChange);
+        model->select();
+        //View
+        ui->tableView->setModel(model);
+        ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+        ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
+        ui->tableView->setSortingEnabled(true);
+
+        ui->tableView->setShowGrid(true);
+
+    }
+    else
+    {
+        ui->statusbar->showMessage("EROR CONNECTION "+ db.lastError().databaseText());
+    }
 }
 
