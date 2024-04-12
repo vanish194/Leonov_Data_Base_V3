@@ -11,6 +11,7 @@ Dialog::Dialog(QWidget *parent)
 Dialog::~Dialog()
 {
     delete ui;
+    delete model2;
 }
 
 void Dialog::on_BtnCancel_clicked()

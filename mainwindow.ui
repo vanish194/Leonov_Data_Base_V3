@@ -52,7 +52,7 @@
       <item>
        <widget class="QPushButton" name="BtnQuerryINPUT">
         <property name="text">
-         <string>Querry INPUT</string>
+         <string>Querry Input</string>
         </property>
        </widget>
       </item>
