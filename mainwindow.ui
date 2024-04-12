@@ -98,8 +98,23 @@
      <height>25</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuMenu">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="OpenDataBase"/>
+   </widget>
+   <addaction name="menuMenu"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="OpenDataBase">
+   <property name="text">
+    <string>Open DataBase</string>
+   </property>
+   <property name="toolTip">
+    <string>OpenDataBase</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>

@@ -19,9 +19,9 @@ public:
 
     QString getmnemonic();
 
-     QString getunit();
+    QString getunit();
 
-     QString getdescription();
+    QString getdescription();
 
     QString gettypedevice_id();
 

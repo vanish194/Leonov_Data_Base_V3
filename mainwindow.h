@@ -12,6 +12,7 @@
 #include <QMessageBox>
 #include <mytablemodel.h>
 #include <QProperty>
+#include <QFileDialog>
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -38,6 +39,8 @@ private slots:
     void on_BtnQuerryINPUT_clicked();
 
     void on_BtnSearch_clicked();
+
+    void on_OpenDataBase_triggered();
 
 private:
     Ui::MainWindow *ui;
