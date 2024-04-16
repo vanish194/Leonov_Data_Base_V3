@@ -11,6 +11,7 @@ Dialog::Dialog(QWidget *parent)
 Dialog::~Dialog()
 {
     delete ui;
+    delete model2;
 }
 
 void Dialog::on_BtnCancel_clicked()
@@ -27,8 +28,7 @@ void Dialog::on_BtnCancel_clicked()
 
 void Dialog::on_BtnApply_clicked()
 {
-
-    model2=new MyTableModel;
+    MyTableModel* model2=new MyTableModel{};
     model2->setmnemonicsId(ui->lbmnemonicId->text());
     model2->setmnemonic(ui->lbmnemonic->text());
     model2->setunit(ui->lbunit->text());
