@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <mytablemodel.h>
+#include <datastorage.h>
 #include <QMessageBox>
 
 namespace Ui {
@@ -24,9 +25,9 @@ private slots:
 
 private:
     Ui::Dialog *ui;
-    MyTableModel *model2;
+    datastorage *model2;
 signals:
-    void giveData(MyTableModel*);
+    void giveData(datastorage*);
 };
 
 #endif // DIALOG_H

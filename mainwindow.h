@@ -13,6 +13,7 @@
 #include <mytablemodel.h>
 #include <QProperty>
 #include <QFileDialog>
+#include <datastorage.h>
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -52,7 +53,7 @@ private:
     Dialog *dialog;
     bool RowSelectionFlag=false;
 public slots:
-    void takeData(MyTableModel*);
+    void takeData(datastorage*);
 
 
 };

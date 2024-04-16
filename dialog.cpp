@@ -28,7 +28,7 @@ void Dialog::on_BtnCancel_clicked()
 
 void Dialog::on_BtnApply_clicked()
 {
-    MyTableModel* model2=new MyTableModel{};
+    datastorage* model2=new datastorage{};
     model2->setmnemonicsId(ui->lbmnemonicId->text());
     model2->setmnemonic(ui->lbmnemonic->text());
     model2->setunit(ui->lbunit->text());

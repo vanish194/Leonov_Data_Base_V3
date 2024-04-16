@@ -50,7 +50,7 @@ void MainWindow::on_BtnADD_clicked()
     model->select();
 }
 
-void MainWindow::takeData(MyTableModel* const model)
+void MainWindow::takeData(datastorage* const data)
 {
 
     QSqlQuery query;
@@ -73,12 +73,12 @@ VALUES ("+model->getmnemonicsId()+","+model->getmnemonic()+","+model->getunit()+
     squery="INSERT INTO mnemonics (mnemonic_id,mnemonic,unit,description,typedevice_id,parent_mnemonic_id) \
 VALUES (:mnemonicsID, :mnemonic, :unit, :description, :typedeviceID, :parentMnemonicId)";
     query.prepare(squery);
-    query.bindValue(":mnemonicsID",model->getmnemonicsId());
-    query.bindValue(":mnemonic",model->getmnemonic());
-    query.bindValue(":unit",model->getunit());
-    query.bindValue(":description",model->getdescription());
-    query.bindValue(":typedeviceID",model->gettypedeviceId());
-    query.bindValue(":parentMnemonicId",model->getparentMnemonicId());
+    query.bindValue(":mnemonicsID",data->getmnemonicsId());
+    query.bindValue(":mnemonic",data->getmnemonic());
+    query.bindValue(":unit",data->getunit());
+    query.bindValue(":description",data->getdescription());
+    query.bindValue(":typedeviceID",data->gettypedeviceId());
+    query.bindValue(":parentMnemonicId",data->getparentMnemonicId());
     if (query.exec())
     {
 
