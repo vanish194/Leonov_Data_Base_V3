@@ -16,7 +16,10 @@ MainWindow::MainWindow(QWidget *parent)
         ui->statusbar->showMessage("Seccessful connection to DB:" +db.databaseName());
         model = new MyTableModel ;
         model->setTable("mnemonics");
-        model->setEditStrategy(QSqlTableModel::OnFieldChange);
+        //model->setRelation(model->fieldIndex("typedevice_id"),QSqlRelation("typedevices","typedevice_id","decriptor"));
+        model->setJoinMode(QSqlRelationalTableModel::LeftJoin);
+        model->setEditStrategy(QSqlTableModel::OnManualSubmit);
+
         model->select();
         //View
         ui->tableView->setModel(model);
@@ -25,6 +28,7 @@ MainWindow::MainWindow(QWidget *parent)
         ui->tableView->setSortingEnabled(true);
 
         ui->tableView->setShowGrid(true);
+        //ui->tableView->setItemDelegate(new QSqlRelationalDelegate(ui->tableView));
 
     }
     else
@@ -71,8 +75,8 @@ VALUES ("+model->getmnemonicsId()+","+model->getmnemonic()+","+model->getunit()+
     */
     QString squery;
     squery="INSERT INTO mnemonics (mnemonic_id,mnemonic,unit,description,typedevice_id,parent_mnemonic_id) \
-VALUES (:mnemonicsID, :mnemonic, :unit, :description, :typedeviceID, :parentMnemonicId)";
-    query.prepare(squery);
+             VALUES (:mnemonicsID, :mnemonic, :unit, :description, :typedeviceID, :parentMnemonicId)";
+             query.prepare(squery);
     query.bindValue(":mnemonicsID",data->getmnemonicsId());
     query.bindValue(":mnemonic",data->getmnemonic());
     query.bindValue(":unit",data->getunit());
