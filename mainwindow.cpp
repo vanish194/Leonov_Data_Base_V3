@@ -53,8 +53,8 @@ void MainWindow::on_BtnADD_clicked()
 void MainWindow::takeData(MyTableModel* const model)
 {
 
-    QSqlQuery querry;
-    if (querry.exec(("INSERT INTO mnemonics (mnemonic_id,mnemonic,unit,description,typedevice_id,parent_mnemonic_id) \
+    QSqlQuery query;
+    /*if (query.exec(("INSERT INTO mnemonics (mnemonic_id,mnemonic,unit,description,typedevice_id,parent_mnemonic_id) \
 VALUES ("+model->getmnemonicsId()+","+model->getmnemonic()+","+model->getunit()+",\
 "+model->getdescription()+","+model->gettypedeviceId()+","+model->getparentMnemonicId()+")" )))
     {
@@ -64,10 +64,32 @@ VALUES ("+model->getmnemonicsId()+","+model->getmnemonic()+","+model->getunit()+
     }
     else
     {
-        QMessageBox::critical(this,"WRONG DATA","SOMETHING WRONG WITH DATA:\n"+querry.lastError().databaseText());
+        QMessageBox::critical(this,"WRONG DATA","SOMETHING WRONG WITH DATA:\n"+query.lastError().databaseText());
 
     }
     ;
+    */
+    QString squery;
+    squery="INSERT INTO mnemonics (mnemonic_id,mnemonic,unit,description,typedevice_id,parent_mnemonic_id) \
+VALUES (:mnemonicsID, :mnemonic, :unit, :description, :typedeviceID, :parentMnemonicId)";
+    query.prepare(squery);
+    query.bindValue(":mnemonicsID",model->getmnemonicsId());
+    query.bindValue(":mnemonic",model->getmnemonic());
+    query.bindValue(":unit",model->getunit());
+    query.bindValue(":description",model->getdescription());
+    query.bindValue(":typedeviceID",model->gettypedeviceId());
+    query.bindValue(":parentMnemonicId",model->getparentMnemonicId());
+    if (query.exec())
+    {
+
+        QMessageBox::about(this,"DATA ADDED","DATA SUCCEFULL ADDED");
+        model->select();
+    }
+    else
+    {
+        QMessageBox::critical(this,"WRONG DATA","SOMETHING WRONG WITH DATA:\n"+query.lastError().databaseText());
+
+    };
 }
 
 
