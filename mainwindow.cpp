@@ -50,7 +50,7 @@ void MainWindow::on_BtnADD_clicked()
     model->select();
 }
 
-void MainWindow::takeData(MyTableModel* model)
+void MainWindow::takeData(MyTableModel* const model)
 {
 
     QSqlQuery querry;
