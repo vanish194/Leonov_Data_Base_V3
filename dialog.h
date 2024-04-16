@@ -25,7 +25,7 @@ private slots:
 
 private:
     Ui::Dialog *ui;
-    datastorage *model2;
+    datastorage *data2;
 signals:
     void giveData(datastorage*);
 };

@@ -5,8 +5,9 @@
 #include <QObject>
 #include <QSqlTableModel>
 #include <QProperty>
+#include <QSqlRelationalTableModel>
 
-class MyTableModel :public QSqlTableModel
+class MyTableModel :public QSqlRelationalTableModel
 {
     Q_OBJECT
 

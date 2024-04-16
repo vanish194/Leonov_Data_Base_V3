@@ -11,7 +11,7 @@ Dialog::Dialog(QWidget *parent)
 Dialog::~Dialog()
 {
     delete ui;
-    delete model2;
+    delete data2;
 }
 
 void Dialog::on_BtnCancel_clicked()
@@ -28,15 +28,16 @@ void Dialog::on_BtnCancel_clicked()
 
 void Dialog::on_BtnApply_clicked()
 {
-    datastorage* model2=new datastorage{};
-    model2->setmnemonicsId(ui->lbmnemonicId->text());
-    model2->setmnemonic(ui->lbmnemonic->text());
-    model2->setunit(ui->lbunit->text());
-    model2->setdescription(ui->lbdescription->text());
-    model2->settypedeviceId(ui->lbtypedeviceId->text());
-    model2->setparentMnemonicId(ui->lbparentMnemonicId->text());
+    datastorage* data2=new datastorage{};
+    data2->setmnemonicsId(ui->lbmnemonicId->text());
+    data2->setmnemonic(ui->lbmnemonic->text());
+    data2->setunit(ui->lbunit->text());
+    data2->setdescription(ui->lbdescription->text());
+    data2->settypedeviceId(ui->lbtypedeviceId->text());
+    data2->setparentMnemonicId(ui->lbparentMnemonicId->text());
 
-    emit giveData(model2);
+    emit giveData(data2);
+    delete data2;
     ui->lbmnemonicId->setText("");
     ui->lbmnemonic->setText("");
     ui->lbunit->setText("");

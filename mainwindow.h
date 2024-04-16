@@ -14,6 +14,7 @@
 #include <QProperty>
 #include <QFileDialog>
 #include <datastorage.h>
+#include <QSqlRelationalDelegate>
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
